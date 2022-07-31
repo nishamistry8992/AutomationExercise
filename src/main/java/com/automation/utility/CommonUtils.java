@@ -5,11 +5,9 @@ import java.time.Duration;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import net.serenitybdd.core.SerenitySystemProperties;
-import net.thucydides.core.ThucydidesSystemProperty;
 
 public class CommonUtils {
 //	private final static Integer MAXTIME_OUT = Integer.valueOf(SerenitySystemProperties.getProperties()
@@ -23,12 +21,10 @@ public class CommonUtils {
 	// private static final Logger LOG =
 	// LogManager.getLogger(CommonUtils.class);
 	//
-	// public static void waitForElementToBeVisible(WebDriver driver, WebElement
-	// ele) {
-	// WebDriverWait wait = new WebDriverWait(driver,
-	// Duration.ofSeconds(MAXTIME_OUT));
-	// wait.until(ExpectedConditions.visibilityOf(ele));
-	// }
+	public static void waitForElementToBeVisible(WebDriver driver, WebElement ele) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOf(ele));
+	}
 	//
 	// public static void waitForElementToBeVisible(WebDriver driver, WebElement
 	// ele, int waitTime) {

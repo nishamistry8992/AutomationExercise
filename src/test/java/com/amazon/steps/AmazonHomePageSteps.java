@@ -3,6 +3,7 @@ package com.amazon.steps;
 import org.junit.Assert;
 
 import com.amazon.pages.AmazonHomePage;
+import com.automation.utility.CommonUtils;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -59,6 +60,7 @@ public class AmazonHomePageSteps {
 
 	@When("^user clicks on the second highest priced item$")
 	public void clicksOnSecondHighestItem() {
+		System.setProperty("second_highest_price", amazonHomePage.getProductItem().get(2).getText());
 		amazonHomePage.getProductItem().get(2).click();
 	}
 
@@ -69,6 +71,11 @@ public class AmazonHomePageSteps {
 
 	@And("^verifies about this item section$")
 	public void verifyAboutThisItem() {
+		CommonUtils.waitForElementToBeVisible(amazonHomePage.getDriver(), amazonHomePage.getPriceToPay());
+		Assert.assertTrue(
+				amazonHomePage.getPriceToPay().getText().equals(System.getProperty("second_highest_price").toString()));
+
 		Assert.assertTrue("About this item section is visible", amazonHomePage.getAboutThisItemSection().isDisplayed());
+
 	}
 }

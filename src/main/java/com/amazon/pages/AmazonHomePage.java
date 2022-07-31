@@ -52,12 +52,15 @@ public class AmazonHomePage extends PageObject {
 	@FindBy(css = "#searchDropdownBox>option[selected]")
 	private WebElement selectedCategory;
 
-	public WebElement getSelectedCategory() {
-		return selectedCategory;
+	@FindBy(css = " span.a-price.aok-align-center.reinventPricePriceToPayMargin.priceToPay > span:nth-child(2) > span.a-price-whole")
+	private WebElement priceToPay;
+
+	public WebElement getPriceToPay() {
+		return priceToPay;
 	}
 
-	public static Logger getLog() {
-		return LOG;
+	public WebElement getSelectedCategory() {
+		return selectedCategory;
 	}
 
 	public WebElement getHamburgerMenu() {
@@ -111,8 +114,6 @@ public class AmazonHomePage extends PageObject {
 
 	public void clicksOnTvAppliances() {
 		CommonUtils.scrollToElementView(getDriver(), getLabelShopBydeparatment());
-		// CommonUtils.waitForElementToBeVisible(getDriver(),
-		// getLabelTvAppliances());
 		getLabelTvAppliances().click();
 	}
 
