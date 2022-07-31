@@ -40,7 +40,8 @@ public class AmazonHomePageSteps {
 	@When("^user clicks on Televisions under Tv, Audio & Cameras sub section$")
 	public void clicksOnTelevision() {
 		amazonHomePage.getLabelTelevisions().click();
-		Assert.assertTrue("Televisions is selected", amazonHomePage.getSelectedCategory().getText() == "Televisions");
+		Assert.assertTrue("Televisions is selected",
+				amazonHomePage.getSelectedCategory().getText().equals("Televisions"));
 	}
 
 	@And("^user scroll down and filter the results by brand \"([^\"]*)\"$")

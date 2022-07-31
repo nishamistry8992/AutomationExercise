@@ -7,13 +7,12 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.automation.utility.CommonUtils;
 
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
 public class AmazonHomePage extends PageObject {
@@ -21,7 +20,7 @@ public class AmazonHomePage extends PageObject {
 
 	public static String MENU_TITLE_ON_HAMBURGER = "//div[@class='hmenu-item hmenu-title ' and text()='trending']";
 
-	private static String BRAND_NAME = "//span[text()='Brands']//../following-sibling::ul/li[@class='a-spacing-micro' and //span[text()='%s']][1]//input";
+	private static String BRAND_NAME = "//span[text()='Brands']/../following-sibling::ul//../following-sibling::span[text()='%s']/..//input";
 
 	@FindBy(id = "nav-hamburger-menu")
 	private WebElement hamburgerMenu;
@@ -41,7 +40,7 @@ public class AmazonHomePage extends PageObject {
 	@FindBy(css = "[class='a-button-inner']>span:nth-child(1)")
 	private WebElement sortByFeatured;
 
-	@FindBy(id = "[id=s-result-sort-select_2]")
+	@FindBy(css = "[id=s-result-sort-select_2]")
 	private WebElement priceHighToLow;
 
 	@FindBy(css = "[class='a-price-whole']")
@@ -103,7 +102,7 @@ public class AmazonHomePage extends PageObject {
 
 	public void launchApplication() {
 		getDriver().manage().window().maximize();
-		getDriver().navigate().to("https://www.amazon.in");
+		open();
 	}
 
 	public void checkOutAmazonPage() {
@@ -111,13 +110,15 @@ public class AmazonHomePage extends PageObject {
 	}
 
 	public void clicksOnTvAppliances() {
-		CommonUtils.scrollToElementView(getDriver(), getLabelTvAppliances());
+		CommonUtils.scrollToElementView(getDriver(), getLabelShopBydeparatment());
+		// CommonUtils.waitForElementToBeVisible(getDriver(),
+		// getLabelTvAppliances());
 		getLabelTvAppliances().click();
 	}
 
 	public void filterByBrand(String brandName) {
 		CommonUtils.scrollToElementView(getDriver(), getBrandsSection());
-		getElementByText(BRAND_NAME, brandName).click();
+		CommonUtils.clickUsingJavaScript(getDriver(), getElementByText(BRAND_NAME, brandName));
 		Assert.assertTrue("Brand " + brandName + "is selected", getElementByText(BRAND_NAME, brandName).isSelected());
 	}
 

@@ -23,179 +23,18 @@
 		<cucumber.version>6.11.0</cucumber.version>
 		<maven.version>3.0.0-M5</maven.version>
 	</properties>
-	
-	<!-- <build> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <groupId>org.apache.maven.plugins</groupId> -->
-	<!-- <artifactId>maven-compiler-plugin</artifactId> -->
-	<!-- <version>${maven.version}</version> -->
-	<!-- <configuration> -->
-	<!-- <source>1.8</source> -->
-	<!-- <target>1.8</target> -->
-	<!-- </configuration> -->
-	<!-- </plugin> -->
-	<!-- <plugin> -->
-	<!-- <artifactId>maven-surefire-plugin</artifactId> -->
-	<!-- <configuration> -->
-	<!-- <skip>true</skip> -->
-	<!-- </configuration> -->
-	<!-- </plugin> -->
-	<!-- <plugin> -->
-	<!-- <groupId>net.serenity-bdd.maven.plugins</groupId> -->
-	<!-- <artifactId>serenity-maven-plugin</artifactId> -->
-	<!-- <version>${serenity.version}</version> -->
-	<!-- <executions> -->
-	<!-- <execution> -->
-	<!-- <id>serenity-reports</id> -->
-	<!-- <phase>post-integration-test</phase> -->
-	<!-- <goals> -->
-	<!-- <goal>aggregate</goal> -->
-	<!-- </goals> -->
-	<!-- </execution> -->
-	<!-- </executions> -->
-	<!-- <dependencies> -->
-	<!-- <dependency> -->
-	<!-- <groupId>net.serenity-bdd</groupId> -->
-	<!-- <artifactId>serenity-core</artifactId> -->
-	<!-- <version>${serenity.version}</version> -->
-	<!-- </dependency> -->
-	<!-- </dependencies> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
-	<!-- <profiles> -->
-	<!-- <profile> -->
-	<!-- <id>TestLocal</id> -->
-	<!-- <activation> -->
-	<!-- <activeByDefault>true</activeByDefault> -->
-	<!-- </activation> -->
-	<!-- <build> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <artifactId>maven-failsafe-plugin</artifactId> -->
-	<!-- <version>${maven.failsafe.version}</version> -->
-	<!-- <configuration> -->
-	<!-- <includes> -->
-	<!-- <include>TestRunner.java</include> -->
-	<!-- </includes> -->
-	<!-- <rerunFailingTestsCount>0</rerunFailingTestsCount> -->
-	<!-- <forkCount>1</forkCount> -->
-	<!-- <reuseForks>true</reuseForks> -->
-	<!-- <systemPropertyVariables> -->
-	<!-- <webdriver.driver>${webdriver.driver}</webdriver.driver> -->
-	<!-- <webdriver.chrome.driver>config/googlechrome/windows/chromedriver.exe</webdriver.chrome.driver> -->
-	<!-- </systemPropertyVariables> -->
-	<!-- </configuration> -->
-	<!-- <executions> -->
-	<!-- <execution> -->
-	<!-- <goals> -->
-	<!-- <goal>integration-test</goal> -->
-	<!-- <goal>verify</goal> -->
-	<!-- </goals> -->
-	<!-- </execution> -->
-	<!-- </executions> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
-	<!-- </profile> -->
-
-	<!-- <profile> -->
-	<!-- <id>BrowserStack</id> -->
-	<!-- <activation> -->
-	<!-- <activeByDefault>true</activeByDefault> -->
-	<!-- </activation> -->
-	<!-- <build> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <artifactId>maven-failsafe-plugin</artifactId> -->
-	<!-- <version>${maven.failsafe.version}</version> -->
-	<!-- <configuration> -->
-	<!-- <includes> -->
-	<!-- <include>TestRunner.java</include> -->
-	<!-- </includes> -->
-	<!-- <rerunFailingTestsCount>0</rerunFailingTestsCount> -->
-	<!-- <forkCount>1</forkCount> -->
-	<!-- <reuseForks>true</reuseForks> -->
-	<!-- <systemPropertyVariables> -->
-	<!-- <buildnumber>${buildnumber.value}</buildnumber> -->
-	<!-- <webdriver.remote.url>${webdriver.remote.url}</webdriver.remote.url> -->
-	<!-- <serenity.driver.capabilities>build:${buildnumber};os:${os};os_version:${os_version};browser:${browser};browser_version:${browser_version};browserstack.local:true;browserstack.localIdentifier:${browserstack.localIdentifier};browserstack.debug:true;browserstack.networkLogs:true</serenity.driver.capabilities> -->
-	<!-- <serenity.driver.capabilities>project:AmazonQA;build:${buildnumber};os:${os};os_version:${os_version};browser:${browser};browserstack.local:true;browserstack.localIdentifier:${bsIdentifier}</serenity.driver.capabilities> -->
-	<!-- </systemPropertyVariables> -->
-	<!-- </configuration> -->
-	<!-- <executions> -->
-	<!-- <execution> -->
-	<!-- <goals> -->
-	<!-- <goal>integration-test</goal> -->
-	<!-- <goal>verify</goal> -->
-	<!-- </goals> -->
-	<!-- </execution> -->
-	<!-- </executions> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
-	<!-- </profile> -->
-	<!-- <profile> -->
-	<!-- <id>generateemailreport</id> -->
-	<!-- <activation> -->
-	<!-- <activeByDefault>false</activeByDefault> -->
-	<!-- </activation> -->
-	<!-- <build> -->
-	<!-- <plugins> -->
-	<!-- <plugin> -->
-	<!-- <groupId>net.serenity-bdd.maven.plugins</groupId> -->
-	<!-- <artifactId>serenity-maven-plugin</artifactId> -->
-	<!-- <version>${serenity.version}</version> -->
-	<!-- <dependencies> -->
-	<!-- <dependency> -->
-	<!-- <groupId>net.serenity-bdd</groupId> -->
-	<!-- <artifactId>serenity-core</artifactId> -->
-	<!-- <version>${serenity.version}</version> -->
-	<!-- </dependency> -->
-	<!-- <dependency> -->
-	<!-- <groupId>net.serenity-bdd</groupId> -->
-	<!-- <artifactId>serenity-emailer</artifactId> -->
-	<!-- <version>${serenity.emailer.version}</version> -->
-	<!-- </dependency> -->
-	<!-- </dependencies> -->
-	<!-- <configuration> -->
-	<!-- <reports>email</reports> -->
-	<!-- </configuration> -->
-	<!-- <executions> -->
-	<!-- <execution> -->
-	<!-- <id>serenity-reports</id> -->
-	<!-- <phase>post-integration-test</phase> -->
-	<!-- <goals> -->
-	<!-- <goal>aggregate</goal> -->
-	<!-- </goals> -->
-	<!-- </execution> -->
-	<!-- <execution> -->
-	<!-- <id>serenity-reports-email</id> -->
-	<!-- <phase>post-integration-test</phase> -->
-	<!-- <goals> -->
-	<!-- <goal>aggregate</goal> -->
-	<!-- </goals> -->
-	<!-- </execution> -->
-	<!-- </executions> -->
-	<!-- </plugin> -->
-	<!-- </plugins> -->
-	<!-- </build> -->
-	<!-- </profile> -->
-	<!-- </profiles> -->
-	<!-- </project> -->
 
 	<dependencies>
-	<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-simple</artifactId>
-		<version>${slf4j.version}</version>
-	</dependency>
-	<dependency>
-	<groupId>log4j</groupId>
-	<artifactId>log4j</artifactId>
-	<version>1.2.17</version>
-	</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -243,12 +82,30 @@
 			<artifactId>cucumber-java</artifactId>
 			<version>${cucumber.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>${cucumber.version}</version>
-		</dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>io.cucumber</groupId> -->
+<!-- 			<artifactId>cucumber-junit</artifactId> -->
+<!-- 			<version>${cucumber.version}</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+            <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
+         <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-screenplay-webdriver</artifactId>
+            <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
 		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>

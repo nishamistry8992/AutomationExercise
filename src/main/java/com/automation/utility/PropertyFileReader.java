@@ -22,7 +22,7 @@ public class PropertyFileReader {
 	private PropertyFileReader() {
 		prop = new Properties();
 		try {
-			prop.load(new FileInputStream("src/test/resources/testdata.properties"));
+			prop.load(new FileInputStream("/serenity.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
